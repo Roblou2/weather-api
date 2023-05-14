@@ -1,0 +1,46 @@
+* {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+* p {
+    font-size: 25px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+table th {
+font-size: 27px;
+}
+
+table td {
+font-size: 22px;
+text-align: center;
+}
+
+.mdi {
+font-size: 22px;
+}
+
+* h2 {
+    font-size: 35px;
+}
+* h3 {
+    font-size: 28px;
+}
+
+h2 .mdi {
+    font-size: 50px;
+}
+
+.all-weather {
+    display: flex;
+    flex-flow: row nowrap;
+    width: 100%;
+    max-width: 800px;
+    justify-content: space-around;
+    margin: auto;
+}
+
+.part-one, .part-two {
+    display: flex;
+    flex-flow: column nowrap;
+}
