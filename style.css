@@ -1,9 +1,15 @@
+body {
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
 * {
     font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 
 * p {
-    font-size: 25px;
+    font-size: 20px;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 
@@ -16,19 +22,56 @@ font-size: 22px;
 text-align: center;
 }
 
-.mdi {
-font-size: 22px;
+h3.current-weather .mdi {
+font-size: 4rem;
+position: absolute;
+top: 40px;
+left: 0;
+}
+
+h3.windspeed .mdi {
+    font-size: 2.5rem;
+    position: absolute;
+    left: -3rem;
+    top: -0.5rem;
+
+}
+
+h3.feels-like .mdi {
+    font-size: 2.5rem;
+    position: absolute;
+    left: -3rem;
+    top: -0.5rem;
+}
+
+h3.humidity .mdi {
+    font-size: 2.5rem;
+    position: absolute;
+    left: -3rem;
+    top: -0.5rem;   
+}
+
+h2.temp .mdi {
+    font-size: 5rem;
+    position: absolute;
+    left: -3.5rem;
+    top: -0.2rem;
 }
 
 * h2 {
     font-size: 35px;
 }
-* h3 {
+* h3, h2 {
     font-size: 28px;
+    position: relative;
 }
 
 h2 .mdi {
     font-size: 50px;
+}
+
+h2.temp {
+    font-size: 5rem;
 }
 
 .all-weather {
@@ -43,4 +86,24 @@ h2 .mdi {
 .part-one, .part-two {
     display: flex;
     flex-flow: column nowrap;
+}
+
+.forecast {
+    display: flex;
+    flex-flow: row nowrap;
+    margin: auto;
+    width: 100%;
+    max-width: 800px;
+    justify-content: space-evenly;
+    gap: 4rem;
+}
+
+.forecast-boxes {
+    display: flex;
+    flex-flow: column nowrap;
+   
+}
+
+.forecast-boxes p {
+    margin-bottom: 0.1rem;
 }
