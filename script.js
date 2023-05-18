@@ -187,34 +187,69 @@ const daySeven = someDay(d7Day, all[1].forecast.forecastday[7].day.condition.tex
 
 //display for forecast
 
+//make thermo icons
+const forecastTempOne = document.createElement('span')
+forecastTempOne.classList.add('mdi')
+forecastTempOne.classList.add('mdi-thermometer')
+
+const forecastTempTwo = document.createElement('span')
+forecastTempTwo.classList.add('mdi')
+forecastTempTwo.classList.add('mdi-thermometer')
+
+const forecastTempThree = document.createElement('span')
+forecastTempThree.classList.add('mdi')
+forecastTempThree.classList.add('mdi-thermometer')
+
+const forecastTempFour = document.createElement('span')
+forecastTempFour.classList.add('mdi')
+forecastTempFour.classList.add('mdi-thermometer')
+
+const forecastTempFive = document.createElement('span')
+forecastTempFive.classList.add('mdi')
+forecastTempFive.classList.add('mdi-thermometer')
+
+const forecastTempSix = document.createElement('span')
+forecastTempSix.classList.add('mdi')
+forecastTempSix.classList.add('mdi-thermometer')
+
+const forecastTempSeven = document.createElement('span')
+forecastTempSeven.classList.add('mdi')
+forecastTempSeven.classList.add('mdi-thermometer')
+
   d1.textContent = `${dayOne.getDay()}`
   d1For.textContent = `${dayOne.getForecast()}`
   d1Temp.textContent = `${dayOne.getTemp()}`
+  d1Temp.appendChild(forecastTempOne)
 
 d2.textContent = `${dayTwo.getDay()}`
 d2For.textContent = `${dayTwo.getForecast()}`
 d2Temp.textContent = `${dayTwo.getTemp()}`
+d2Temp.appendChild(forecastTempTwo)
 
 d3.textContent = `${dayThree.getDay()}`
 d3For.textContent = `${dayThree.getForecast()}`
 d3Temp.textContent = `${dayThree.getTemp()}`
+d3Temp.appendChild(forecastTempThree)
 
 d4.textContent = `${dayFour.getDay()}`
 d4For.textContent = `${dayFour.getForecast()}`
 d4Temp.textContent = `${dayFour.getTemp()}`
+d4Temp.appendChild(forecastTempFour)
 
 d5.textContent = `${dayFive.getDay()}`
 d5For.textContent = `${dayFive.getForecast()}`
 d5Temp.textContent = `${dayFive.getTemp()}`
+d5Temp.appendChild(forecastTempFive)
 
 d6.textContent = `${daySix.getDay()}`
 d6For.textContent = `${daySix.getForecast()}`
 d6Temp.textContent = `${daySix.getTemp()}`
+d6Temp.appendChild(forecastTempSix)
 
 d7.textContent = `${daySeven.getDay()}`
 d7For.textContent = `${daySeven.getForecast()}`
 d7Temp.textContent =  `${daySeven.getTemp()}`
-
+d7Temp.appendChild(forecastTempSeven)
 
 //display for searched location
 

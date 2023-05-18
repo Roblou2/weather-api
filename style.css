@@ -13,14 +13,6 @@ body {
     font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 
-table th {
-font-size: 27px;
-}
-
-table td {
-font-size: 22px;
-text-align: center;
-}
 
 h3.current-weather .mdi {
 font-size: 4rem;
@@ -54,8 +46,62 @@ h3.humidity .mdi {
 h2.temp .mdi {
     font-size: 5rem;
     position: absolute;
-    left: -3.5rem;
-    top: -0.2rem;
+    left: -4rem;
+
+}
+
+.d1-temp, .d2-temp, .d3-temp, .d4-temp, .d5-temp, .d6-temp, .d7-temp {
+    position: relative;
+}
+
+.d1-temp .mdi {
+    font-size: 2rem;
+    position: absolute;
+    left: -1.5rem;
+    top: -0.6rem;
+    
+}
+
+.d2-temp .mdi {
+    font-size: 2rem;
+    position: absolute;
+    left: -1.5rem;
+    top: -0.6rem;
+}
+
+.d3-temp .mdi {
+    font-size: 2rem;
+    position: absolute;
+    left: -1.5rem;
+    top: -0.6rem;
+}
+
+.d4-temp .mdi {
+    font-size: 2rem;
+    position: absolute;
+    left: -1.5rem;
+    top: -0.6rem;
+}
+
+.d5-temp .mdi {
+    font-size: 2rem;
+    position: absolute;
+    left: -1.5rem;
+    top: -0.6rem;
+}
+
+.d6-temp .mdi {
+    font-size: 2rem;
+    position: absolute;
+    left: -1.5rem;
+    top: -0.6rem;
+}
+
+.d7-temp .mdi {
+    font-size: 2rem;
+    position: absolute;
+    left: -1.5rem;
+    top: -0.6rem;
 }
 
 * h2 {
@@ -81,8 +127,35 @@ h2.temp {
     max-width: 800px;
     justify-content: space-around;
     margin: auto;
+    gap: 10rem;
+    align-items: center;
+}
+#search {
+
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 5px;
+    width: 20%;
+    font-size: 1.5rem;
 }
 
+button.search .mdi {
+    font-size: 2rem;
+
+  
+}
+
+.search-box {
+    display: flex;
+    flex-flow: row nowrap;
+  gap: 2px;
+    margin-left: 5rem;
+    margin-top: 6rem;
+}
+
+#search:focus {
+    border: 3px solid #555;
+}
 .part-one, .part-two {
     display: flex;
     flex-flow: column nowrap;
