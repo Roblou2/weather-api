@@ -1,4 +1,5 @@
 
+//DOM variables
 
 const searchBox = document.getElementById('search')
 const searchButton = document.querySelector('.search')
@@ -51,6 +52,47 @@ let body = document.querySelector('body')
 
 let searched;
 
+//make forecast object for given day
+
+const someDay = (whatDay, theForecast, theTemp) => {
+
+
+if (whatDay == 0) {
+  whatDay = `Sunday`
+}
+else if (whatDay == 1) {
+  whatDay = `Monday`
+}
+else if (whatDay == 2) {
+  whatDay = `Tuesday`
+}
+else if (whatDay == 3) {
+  
+  whatDay = `Wednesday`
+}
+else if (whatDay == 4) {
+  whatDay = `Thursday`
+}
+else if (whatDay == 5) {
+  whatDay = `Friday`
+}
+else if (whatDay == 6) {
+  whatDay = `Saturday`
+}
+
+const getDay = () => whatDay
+  
+  const getForecast = () => theForecast
+  
+  const getTemp = () => theTemp
+
+
+
+  return {getDay, getForecast, getTemp}
+}
+
+//load data from searched location
+
 async function loadSearched () {
     let CurrentWeatherInUrl = "https://api.weatherapi.com/v1/current.json?key=f64289458a7443a396c160259230705&q="
     let searchedUrl = CurrentWeatherInUrl.concat(`${searched}`)
@@ -67,6 +109,8 @@ async function loadSearched () {
 
      //array of current location weather and the weather forecast
      const theWeather = Promise.all([data, forecastResponseData]);
+
+
     try {
 const all = await theWeather
 
@@ -101,6 +145,7 @@ humidity.classList.add('mdi-water-percent')
 humid.appendChild(humidity)
 
 
+
 let d1Date = new Date(`${all[1].forecast.forecastday[1].date}`)
 let d1Day = d1Date.getDay()
 
@@ -123,230 +168,55 @@ let d6Day = d6Date.getDay()
 let d7Date = new Date(`${all[1].forecast.forecastday[7].date}`)
 let d7Day = d7Date.getDay()
 
-//day 1 is the day after the current day
-  d1.textContent = `${d1Day}`
-  d1For.textContent = `${all[1].forecast.forecastday[1].day.condition.text}`
-  d1Temp.textContent = `${all[1].forecast.forecastday[1].day.avgtemp_c}`
+//make days for forecast with above factory function
+const dayOne = someDay(d1Day, all[1].forecast.forecastday[1].day.condition.text, all[1].forecast.forecastday[1].day.avgtemp_c)
 
-d2.textContent = `${d2Day}`
-d2For.textContent = `${all[1].forecast.forecastday[2].day.condition.text}`
-d2Temp.textContent = `${all[1].forecast.forecastday[2].day.avgtemp_c}`
+const dayTwo = someDay(d2Day, all[1].forecast.forecastday[2].day.condition.text, all[1].forecast.forecastday[2].day.avgtemp_c)
 
-d3.textContent = `${d3Day}`
-d3For.textContent = `${all[1].forecast.forecastday[3].day.condition.text}`
-d3Temp.textContent = `${all[1].forecast.forecastday[3].day.avgtemp_c}`
+const dayThree = someDay(d3Day, all[1].forecast.forecastday[3].day.condition.text, all[1].forecast.forecastday[3].day.avgtemp_c)
 
-d4.textContent = `${d4Day}`
-d4For.textContent = `${all[1].forecast.forecastday[4].day.condition.text}`
-d4Temp.textContent = `${all[1].forecast.forecastday[4].day.avgtemp_c}`
+const dayFour = someDay(d4Day, all[1].forecast.forecastday[4].day.condition.text, all[1].forecast.forecastday[4].day.avgtemp_c)
 
-d5.textContent = `${d5Day}`
-d5For.textContent = `${all[1].forecast.forecastday[5].day.condition.text}`
-d5Temp.textContent = `${all[1].forecast.forecastday[5].day.avgtemp_c}`
+const dayFive = someDay(d5Day, all[1].forecast.forecastday[5].day.condition.text, all[1].forecast.forecastday[5].day.avgtemp_c)
 
-d6.textContent = `${d6Day}`
-d6For.textContent = `${all[1].forecast.forecastday[6].day.condition.text}`
-d6Temp.textContent = `${all[1].forecast.forecastday[6].day.avgtemp_c}`
+const daySix = someDay(d6Day, all[1].forecast.forecastday[6].day.condition.text, all[1].forecast.forecastday[6].day.avgtemp_c)
 
-d7.textContent = `${d7Day}`
-d7For.textContent = `${all[1].forecast.forecastday[7].day.condition.text}`
-d7Temp.textContent = `${all[1].forecast.forecastday[7].day.avgtemp_c}`
+const daySeven = someDay(d7Day, all[1].forecast.forecastday[7].day.condition.text, all[1].forecast.forecastday[7].day.avgtemp_c)
 
-//conditionals for displaying correct day of week in forecast
 
-//day1
 
-if (d1.textContent.includes('0')) {
-  d1.textContent = `Sunday`
-}
-else if (d1.textContent.includes('1')) {
-  d1.textContent = `Monday`
-}
-else if (d1.textContent.includes('2')) {
-  d1.textContent = `Tuesday`
-}
-else if (d1.textContent.includes('3')) {
-  
-    d1.textContent = `Wednesday`
-}
-else if (d1.textContent.includes('4')) {
-  d1.textContent = `Thursday`
-}
-else if (d1.textContent.includes('5')) {
-  d1.textContent = `Friday`
-}
-else if (d1.textContent.includes('6')) {
-  d1.textContent = `Saturday`
-}
-else if (d1.textContent.includes('7')) {
-  d1.textContent = `Sunday`
-}
+//display for forecast
 
-//day 2
+  d1.textContent = `${dayOne.getDay()}`
+  d1For.textContent = `${dayOne.getForecast()}`
+  d1Temp.textContent = `${dayOne.getTemp()}`
 
-if (d2.textContent.includes('0')) {
-  d2.textContent = `Sunday`
-}
-else if (d2.textContent.includes('1')) {
-  d2.textContent = `Monday`
-}
-else if (d2.textContent.includes('2')) {
-  d2.textContent = `Tuesday`
-}
-else if (d2.textContent.includes('3')) {
-  
-    d2.textContent = `Wednesday`
-}
-else if (d2.textContent.includes('4')) {
-  d2.textContent = `Thursday`
-}
-else if (d2.textContent.includes('5')) {
-  d2.textContent = `Friday`
-}
-else if (d2.textContent.includes('6')) {
-  d2.textContent = `Saturday`
-}
-else if (d2.textContent.includes('7')) {
-  d2.textContent = `Sunday`
-}
+d2.textContent = `${dayTwo.getDay()}`
+d2For.textContent = `${dayTwo.getForecast()}`
+d2Temp.textContent = `${dayTwo.getTemp()}`
 
-//day 3 
+d3.textContent = `${dayThree.getDay()}`
+d3For.textContent = `${dayThree.getForecast()}`
+d3Temp.textContent = `${dayThree.getTemp()}`
 
-if (d3.textContent.includes('0')) {
-  d3.textContent = `Sunday`
-}
-else if (d3.textContent.includes('1')) {
-  d3.textContent = `Monday`
-}
-else if (d3.textContent.includes('2')) {
-  d3.textContent = `Tuesday`
-}
-else if (d3.textContent.includes('3')) {
-  
-    d3.textContent = `Wednesday`
-}
-else if (d3.textContent.includes('4')) {
-  d3.textContent = `Thursday`
-}
-else if (d3.textContent.includes('5')) {
-  d3.textContent = `Friday`
-}
-else if (d3.textContent.includes('6')) {
-  d3.textContent = `Saturday`
-}
-else if (d3.textContent.includes('7')) {
-  d3.textContent = `Sunday`
-}
+d4.textContent = `${dayFour.getDay()}`
+d4For.textContent = `${dayFour.getForecast()}`
+d4Temp.textContent = `${dayFour.getTemp()}`
 
-//day 4
+d5.textContent = `${dayFive.getDay()}`
+d5For.textContent = `${dayFive.getForecast()}`
+d5Temp.textContent = `${dayFive.getTemp()}`
 
-if (d4.textContent.includes('0')) {
-  d4.textContent = `Sunday`
-}
-else if (d4.textContent.includes('1')) {
-  d4.textContent = `Monday`
-}
-else if (d4.textContent.includes('2')) {
-  d4.textContent = `Tuesday`
-}
-else if (d4.textContent.includes('3')) {
-  
-    d4.textContent = `Wednesday`
-}
-else if (d4.textContent.includes('4')) {
-  d4.textContent = `Thursday`
-}
-else if (d4.textContent.includes('5')) {
-  d4.textContent = `Friday`
-}
-else if (d4.textContent.includes('6')) {
-  d4.textContent = `Saturday`
-}
-else if (d4.textContent.includes('7')) {
-  d4.textContent = `Sunday`
-}
+d6.textContent = `${daySix.getDay()}`
+d6For.textContent = `${daySix.getForecast()}`
+d6Temp.textContent = `${daySix.getTemp()}`
 
-//day 5
+d7.textContent = `${daySeven.getDay()}`
+d7For.textContent = `${daySeven.getForecast()}`
+d7Temp.textContent =  `${daySeven.getTemp()}`
 
-if (d5.textContent.includes('0')) {
-  d5.textContent = `Sunday`
-}
-else if (d5.textContent.includes('1')) {
-  d5.textContent = `Monday`
-}
-else if (d5.textContent.includes('2')) {
-  d5.textContent = `Tuesday`
-}
-else if (d5.textContent.includes('3')) {
-  
-    d5.textContent = `Wednesday`
-}
-else if (d5.textContent.includes('4')) {
-  d5.textContent = `Thursday`
-}
-else if (d5.textContent.includes('5')) {
-  d5.textContent = `Friday`
-}
-else if (d5.textContent.includes('6')) {
-  d5.textContent = `Saturday`
-}
-else if (d5.textContent.includes('7')) {
-  d5.textContent = `Sunday`
-}
 
-//day 6
-if (d6.textContent.includes('0')) {
-  d6.textContent = `Sunday`
-}
-else if (d6.textContent.includes('1')) {
-  d6.textContent = `Monday`
-}
-else if (d6.textContent.includes('2')) {
-  d6.textContent = `Tuesday`
-}
-else if (d6.textContent.includes('3')) {
-  
-    d6.textContent = `Wednesday`
-}
-else if (d6.textContent.includes('4')) {
-  d6.textContent = `Thursday`
-}
-else if (d6.textContent.includes('5')) {
-  d6.textContent = `Friday`
-}
-else if (d6.textContent.includes('6')) {
-  d6.textContent = `Saturday`
-}
-else if (d6.textContent.includes('7')) {
-  d6.textContent = `Sunday`
-}
-
-//day 7
-if (d7.textContent.includes('0')) {
-  d7.textContent = `Sunday`
-}
-else if (d7.textContent.includes('1')) {
-  d7.textContent = `Monday`
-}
-else if (d7.textContent.includes('2')) {
-  d7.textContent = `Tuesday`
-}
-else if (d7.textContent.includes('3')) {
-  
-    d7.textContent = `Wednesday`
-}
-else if (d7.textContent.includes('4')) {
-  d7.textContent = `Thursday`
-}
-else if (d7.textContent.includes('5')) {
-  d7.textContent = `Friday`
-}
-else if (d7.textContent.includes('6')) {
-  d7.textContent = `Saturday`
-}
-else if (d7.textContent.includes('7')) {
-  d7.textContent = `Sunday`
-}
+//display for searched location
 
 if (currentWeather.textContent === 'Partly cloudy') {
 body.style.backgroundImage = 'url(./partly-cloudy.png)'
@@ -431,6 +301,8 @@ console.error("Not found")
      }
 }
 
+
+//get value of search input
 
 function getSearch () {
       
