@@ -1,7 +1,7 @@
 body {
-    background-repeat: no-repeat;
-    background-size: cover;
-
+background-color: #e1e1e1;
+width: 100%;
+height: 100%;
 }
 
 * {
@@ -57,7 +57,7 @@ h2.temp .mdi {
 .d1-temp .mdi {
     font-size: 2rem;
     position: absolute;
-    left: -1.5rem;
+    left: -2rem;
     top: -0.6rem;
     
 }
@@ -65,42 +65,42 @@ h2.temp .mdi {
 .d2-temp .mdi {
     font-size: 2rem;
     position: absolute;
-    left: -1.5rem;
+    left: -2rem;
     top: -0.6rem;
 }
 
 .d3-temp .mdi {
     font-size: 2rem;
     position: absolute;
-    left: -1.5rem;
+    left: -2rem;
     top: -0.6rem;
 }
 
 .d4-temp .mdi {
     font-size: 2rem;
     position: absolute;
-    left: -1.5rem;
+    left: -2rem;
     top: -0.6rem;
 }
 
 .d5-temp .mdi {
     font-size: 2rem;
     position: absolute;
-    left: -1.5rem;
+    left: -2rem;
     top: -0.6rem;
 }
 
 .d6-temp .mdi {
     font-size: 2rem;
     position: absolute;
-    left: -1.5rem;
+    left: -2rem;
     top: -0.6rem;
 }
 
 .d7-temp .mdi {
     font-size: 2rem;
     position: absolute;
-    left: -1.5rem;
+    left: -2rem;
     top: -0.6rem;
 }
 
@@ -124,8 +124,8 @@ h2.temp {
     display: flex;
     flex-flow: row nowrap;
     width: 100%;
-    max-width: 800px;
-    justify-content: space-around;
+    max-width: 1000px;
+    justify-content: space-evenly;
     margin: auto;
     gap: 10rem;
     align-items: center;
@@ -141,8 +141,10 @@ h2.temp {
 
 button.search .mdi {
     font-size: 2rem;
-
   
+}
+button.search {
+    margin-left: 5px;
 }
 
 .search-box {
@@ -154,29 +156,122 @@ button.search .mdi {
 }
 
 #search:focus {
-    border: 3px solid #555;
+    border: 1px solid #555;
 }
+
 .part-one, .part-two {
     display: flex;
     flex-flow: column nowrap;
+width: 100%;
+max-width: 500px;
 }
 
 .forecast {
     display: flex;
     flex-flow: row nowrap;
-    margin: auto;
-    width: 100%;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
     max-width: 800px;
-    justify-content: space-evenly;
+    justify-content: space-around;
+    position: relative;
     gap: 4rem;
+ 
+}
+
+.border-top, .border-bottom {
+    border-bottom: 1px solid  #f7ea21;
+    width: 70%;
+    margin: auto;
 }
 
 .forecast-boxes {
     display: flex;
     flex-flow: column nowrap;
-   
+   width: 100%;
+   max-width: 350px;
+ 
 }
 
 .forecast-boxes p {
-    margin-bottom: 0.1rem;
+    
+    width: 8rem;
+    font-size: 1rem;
+  
+}
+
+.d1, .d2, .d3, .d4, .d5, .d6, .d7 {
+    font-weight: 700;
+}
+
+@media screen and (max-width: 700px) {
+    body {
+        background-size: cover;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+     
+        padding: 0 10px;
+    }
+
+
+.all-weather {
+ 
+    flex-flow: column nowrap;
+    width: 100%;
+    max-width: 700px;
+    justify-content: space-evenly;
+    margin: auto;
+    gap: 0;
+    align-items: center;
+}
+#search {
+
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 5px;
+    width: 50%;
+    font-size: 1rem;
+}
+
+
+.part-one, .part-two {
+align-items: center;
+width: 100%;
+max-width: 700px;
+}
+
+.forecast {
+    display: flex;
+    flex-flow: row wrap;
+    margin-bottom: 10px;
+    width: 100%;
+ 
+    justify-content: center;
+
+    gap: 2rem;
+ 
+}
+
+.border-top, .border-bottom {
+    border-bottom: 1px solid  #f7ea21;
+    width: 70%;
+    margin: auto;
+}
+
+.forecast-boxes {
+    display: flex;
+    flex-flow: column nowrap;
+   width: 100%;
+   max-width: 150px;
+ 
+}
+
+.forecast-boxes p {
+    
+    width: 8rem;
+    font-size: 1rem;
+  
+}
+
 }

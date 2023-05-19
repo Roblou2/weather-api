@@ -121,8 +121,8 @@ date.textContent = `${theDate.toString()}`
 currentWeather.textContent = `${all[0].current.condition.text}`
 temp.textContent = `${all[0].current.temp_c} °C`
 feelsLike.textContent = `Feels like ${all[0].current.feelslike_c} °C`
-windspeed.textContent = `Windspeed ${all[0].current.wind_mph} mph`
-humid.textContent =`Humidity ${all[0].current.humidity} % `
+windspeed.textContent = `${all[0].current.wind_mph} mph`
+humid.textContent =`${all[0].current.humidity} % `
 
 let windSym = document.createElement('span')
 windSym.classList.add('mdi')
@@ -218,43 +218,43 @@ forecastTempSeven.classList.add('mdi-thermometer')
 
   d1.textContent = `${dayOne.getDay()}`
   d1For.textContent = `${dayOne.getForecast()}`
-  d1Temp.textContent = `${dayOne.getTemp()}`
+  d1Temp.textContent = `${dayOne.getTemp()} °C`
   d1Temp.appendChild(forecastTempOne)
 
 d2.textContent = `${dayTwo.getDay()}`
 d2For.textContent = `${dayTwo.getForecast()}`
-d2Temp.textContent = `${dayTwo.getTemp()}`
+d2Temp.textContent = `${dayTwo.getTemp()} °C`
 d2Temp.appendChild(forecastTempTwo)
 
 d3.textContent = `${dayThree.getDay()}`
 d3For.textContent = `${dayThree.getForecast()}`
-d3Temp.textContent = `${dayThree.getTemp()}`
+d3Temp.textContent = `${dayThree.getTemp()} °C`
 d3Temp.appendChild(forecastTempThree)
 
 d4.textContent = `${dayFour.getDay()}`
 d4For.textContent = `${dayFour.getForecast()}`
-d4Temp.textContent = `${dayFour.getTemp()}`
+d4Temp.textContent = `${dayFour.getTemp()} °C`
 d4Temp.appendChild(forecastTempFour)
 
 d5.textContent = `${dayFive.getDay()}`
 d5For.textContent = `${dayFive.getForecast()}`
-d5Temp.textContent = `${dayFive.getTemp()}`
+d5Temp.textContent = `${dayFive.getTemp()} °C`
 d5Temp.appendChild(forecastTempFive)
 
 d6.textContent = `${daySix.getDay()}`
 d6For.textContent = `${daySix.getForecast()}`
-d6Temp.textContent = `${daySix.getTemp()}`
+d6Temp.textContent = `${daySix.getTemp()} °C`
 d6Temp.appendChild(forecastTempSix)
 
 d7.textContent = `${daySeven.getDay()}`
 d7For.textContent = `${daySeven.getForecast()}`
-d7Temp.textContent =  `${daySeven.getTemp()}`
+d7Temp.textContent =  `${daySeven.getTemp()} °C`
 d7Temp.appendChild(forecastTempSeven)
 
 //display for searched location
 
 if (currentWeather.textContent === 'Partly cloudy') {
-body.style.backgroundImage = 'url(./partly-cloudy.png)'
+
 let clouds = document.createElement('span')
 clouds.classList.add('mdi')
 clouds.classList.add('mdi-clouds')
@@ -262,7 +262,6 @@ currentWeather.appendChild(clouds)
 }
 else if (currentWeather.textContent === 'Sunny') {
   
-  body.style.backgroundImage = 'url(./sunny.jpg)'
   let sun = document.createElement('span')
   sun.classList.add('mdi')
   sun.classList.add('mdi-white-balance-sunny')
@@ -270,7 +269,13 @@ else if (currentWeather.textContent === 'Sunny') {
 
 }
 else if (currentWeather.textContent === 'Showers') {
-  body.style.backgroundImage = 'url(./shower.jpg)'
+  let rain = document.createElement('span')
+rain.classList.add('mdi')
+rain.classList.add('mdi-weather-pouring')
+currentWeather.appendChild(rain)
+}
+
+else if (currentWeather.textContent === 'Light rain shower') {
   let rain = document.createElement('span')
 rain.classList.add('mdi')
 rain.classList.add('mdi-weather-pouring')
@@ -278,7 +283,6 @@ currentWeather.appendChild(rain)
 }
 
 else if (currentWeather.textContent === 'Moderate rain') {
-  body.style.backgroundImage = 'url(./rain.jpg)'
   let rain = document.createElement('span')
   rain.classList.add('mdi')
   rain.classList.add('mdi-weather-pouring')
@@ -286,7 +290,6 @@ else if (currentWeather.textContent === 'Moderate rain') {
 }
 
 else if (currentWeather.textContent === 'Light rain') {
-  body.style.backgroundImage = 'url(./rain.jpg)'
   let rain = document.createElement('span')
   rain.classList.add('mdi')
   rain.classList.add('mdi-weather-pouring')
@@ -294,7 +297,6 @@ else if (currentWeather.textContent === 'Light rain') {
 }
 
 else if (currentWeather.textContent === 'Moderate or heavy rain with thunder') {
-  body.style.backgroundImage = 'url(./shower.jpg)'
   let rain = document.createElement('span')
   rain.classList.add('mdi')
   rain.classList.add('mdi-weather-pouring')
@@ -303,14 +305,12 @@ else if (currentWeather.textContent === 'Moderate or heavy rain with thunder') {
 
 
 else if (currentWeather.textContent === 'Mostly cloudy') {
-  body.style.backgroundImage = 'url(./cloudy.jpg)'
   let clouds = document.createElement('span')
   clouds.classList.add('mdi')
   clouds.classList.add('mdi-clouds')
   currentWeather.appendChild(clouds)
 }
 else if (currentWeather.textContent === 'Thunderstorm') {
-  body.style.backgroundImage = 'url(./thunder.jpg)'
   let thunder = document.createElement('span')
   thunder.classList.add('mdi')
   thunder.classList.add('mdi-weather-lightning-rainy')
@@ -318,16 +318,13 @@ else if (currentWeather.textContent === 'Thunderstorm') {
 }
 
 else if (currentWeather.textContent === 'Partly sunny') {
-  body.style.backgroundImage = 'url(./partly-sunny.png)'
   let partlySunny = document.createElement('span')
   partlySunny.classList.add('mdi')
   partlySunny.classList.add('mdi-weather-partly-cloudy')
   currentWeather.appendChild(partlySunny)
 }
 
-else if (currentWeather.textContent === 'Overcast') {
-  body.style.backgroundColor = '#e1e1e1'
-}
+
 }
 
     
@@ -346,4 +343,9 @@ function getSearch () {
   }
   searchBox.addEventListener('change', getSearch)
 searchButton.addEventListener('click', loadSearched)
+
+window.onload = () => {
+  searched = 'london'
+  loadSearched()
+}
 
